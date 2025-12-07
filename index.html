@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mark's Portfolio - Software Engineer showcasing projects and skills">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>Mark's Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="background"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">MARK OWENS</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>
+            <span class="hero-text">Hi, I'm </span>
+            <span class="gradient-text hero-text">Mark Owens</span>
+        </h1>
+        <p class="hero-subtitle">Software Engineer crafting digital experiences with modern web technologies</p>
+        <button class="cta-button">View My Work</button>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-card-header">
+                    <h3>Project Alpha</h3>
+                    <span class="project-icon">→</span>
+                </div>
+                <p>A full-stack application that revolutionizes task management with AI-powered suggestions and real-time collaboration.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Asp.NetCore</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-card-header">
+                    <h3>Data Visualizer</h3>
+                    <span class="project-icon">→</span>
+                </div>
+                <p>Interactive data visualization dashboard that transforms complex datasets into beautiful, understandable insights.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">D3.js</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Python</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-card-header">
+                    <h3>API Gateway</h3>
+                    <span class="project-icon">→</span>
+                </div>
+                <p>High-performance API gateway handling thousands of requests per second with intelligent rate limiting and caching.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Go</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Frontend</h3>
+                <div class="skill-items">
+                    <span class="skill-item">HTML/CSS</span>
+                    <span class="skill-item">JavaScript</span>
+                    <span class="skill-item">React</span>
+                    <span class="skill-item">TypeScript</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Backend</h3>
+                <div class="skill-items">
+                    <span class="skill-item">C#</span>
+                    <span class="skill-item"><Asp class="Net"></Asp></span>
+                    <span class="skill-item">SQL</span>
+                    <span class="skill-item">PostgreSQL</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Tools & DevOps</h3>
+                <div class="skill-items">
+                    <span class="skill-item">Docker</span>
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">CI/CD</span>
+                    <span class="skill-item">Azure</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>I'm a self taught software engineer with a passion for building clean, efficient solutions to complex problems. With expertise spanning full-stack development, I love transforming ideas into scalable applications.</p>
+            <p>I believe in writing code that's not just functional, but simple and maintainable. Continuous learning drives me forward—whether it's mastering new frameworks, exploring emerging technologies, or contributing to open source projects.</p>
+            <p>Let's collaborate and create something extraordinary together.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <p>I'm always interested in hearing about new projects and opportunities.</p>
+            <a href="mailto:your.email@example.com" class="cta-button contact-button">Send Me An Email</a>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link">Twitter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mark. All rights reserved. Built with passion and GSAP animations.</p>
+    </footer>
+
+    <!-- GSAP Library - Core and ScrollTrigger plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    
+    <script src="js/animations.js"></script>
+</body>
+</html>

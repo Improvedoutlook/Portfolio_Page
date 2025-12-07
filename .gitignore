@@ -1,0 +1,67 @@
+# Dependencies and packages
+node_modules/
+npm-debug.log
+yarn.lock
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+.atom/
+
+# Build and dist folders
+dist/
+build/
+out/
+
+# Logs
+*.log
+logs/
+
+# Local configuration
+.env
+.env.local
+.env.*.local
+
+# Cache
+.cache/
+.eslintcache
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.bak
+.temp/
+
+# Compiled files
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Media files (optional - uncomment if you want to exclude large media)
+# *.mp4
+# *.mov
+# *.avi
+# *.webm
+# *.psd
+# *.sketch
