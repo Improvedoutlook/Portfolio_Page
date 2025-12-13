@@ -27,6 +27,7 @@ body {
     background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
     z-index: -1;
     animation: gradientShift 15s ease infinite;
+    pointer-events: none;
 }
 
 @keyframes gradientShift {
@@ -59,10 +60,12 @@ nav {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     background: rgba(10, 10, 15, 0.7);
     border-bottom: 1px solid rgba(102, 126, 234, 0.1);
     transition: all 0.3s ease;
+    will-change: transform;
 }
 
 nav:hover {
@@ -71,19 +74,27 @@ nav:hover {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     transition: transform 0.3s ease;
+    text-decoration: none;
 }
 
 .logo:hover {
     transform: scale(1.05);
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+
+.logo:hover .logo-image {
+    filter: brightness(1.1);
 }
 
 .nav-links {
@@ -180,6 +191,9 @@ nav:hover {
     position: relative;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+    text-decoration: none;
+    display: inline-block;
+    z-index: 1;
 }
 
 .cta-button::before {
@@ -237,6 +251,7 @@ nav:hover {
 /* Glass morphism card effect */
 .project-card {
     background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
@@ -244,6 +259,8 @@ nav:hover {
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
     overflow: hidden;
+    will-change: transform;
+    contain: layout style paint;
 }
 
 .project-card::before {
@@ -440,6 +457,8 @@ nav:hover {
 
 .contact-content {
     max-width: 600px;
+    opacity: 1;
+    transform: scale(1);
 }
 
 .contact-content p {

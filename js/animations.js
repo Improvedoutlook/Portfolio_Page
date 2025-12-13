@@ -1,6 +1,16 @@
 // ==================== GSAP INITIALIZATION ==================== 
-// Register ScrollTrigger and ScrollToPlugin plugins with GSAP
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+// Register plugins only if they are available.
+// This prevents elements from getting stuck in a hidden state if a plugin fails to load.
+const hasScrollTrigger = typeof ScrollTrigger !== 'undefined';
+const hasScrollToPlugin = typeof ScrollToPlugin !== 'undefined';
+
+if (hasScrollTrigger && hasScrollToPlugin) {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+} else if (hasScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+} else if (hasScrollToPlugin) {
+    gsap.registerPlugin(ScrollToPlugin);
+}
 
 // ==================== HERO SECTION ANIMATIONS ==================== 
 // This creates a staggered reveal effect for the hero text and elements
@@ -20,83 +30,104 @@ heroTimeline
         opacity: 0,
         duration: 0.8
     }, "-=0.5")          // Start 0.5s before previous animation ends (overlap)
-    // Finally animate the button
-    .from(".cta-button", {
+    // Finally animate the hero button (scope to hero only so other CTAs don't get affected)
+    .from(".hero .cta-button", {
         scale: 0.8,       // Start slightly smaller
         opacity: 0,
         duration: 0.6
+        ,immediateRender: false
     }, "-=0.3");
 
 // ==================== PROJECT CARDS SCROLL ANIMATION ==================== 
-// This animates each project card as it enters the viewport
-gsap.from(".project-card", {
-    scrollTrigger: {
-        trigger: ".projects",    // Start when .projects enters viewport
-        start: "top 80%",       // When top of .projects is 80% down the viewport
-        end: "bottom 20%",      // End animation when bottom is 20% down
-        toggleActions: "play none none reverse"  // Play on enter, reverse on leave
-    },
-    y: 100,                     // Start 100px below
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,               // Animate each card with 0.2s delay
-    ease: "power2.out"
-});
+// Only run scroll-triggered animations if ScrollTrigger is available.
+if (hasScrollTrigger) {
+    // Use set() to ensure initial state, then animate from there
+    gsap.set(".project-card", { y: 100, opacity: 0 });
 
-// ==================== SKILLS SECTION SCROLL ANIMATION ==================== 
-gsap.from(".skill-category", {
-    scrollTrigger: {
-        trigger: ".skills",
-        start: "top 75%",
-        toggleActions: "play none none reverse"
-    },
-    y: 80,
-    opacity: 0,
-    duration: 0.7,
-    stagger: 0.15,
-    ease: "back.out(1.2)"
-});
-
-// ==================== ABOUT SECTION SCROLL ANIMATION ==================== 
-gsap.from(".about-content", {
-    scrollTrigger: {
-        trigger: ".about",
-        start: "top 70%",
-        toggleActions: "play none none reverse"
-    },
-    x: -100,                    // Start 100px to the left
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out"
-});
-
-// ==================== CONTACT SECTION SCROLL ANIMATION ==================== 
-gsap.from(".contact-content", {
-    scrollTrigger: {
-        trigger: ".contact",
-        start: "top 70%",
-        toggleActions: "play none none reverse"
-    },
-    scale: 0.8,
-    opacity: 0,
-    duration: 0.8,
-    ease: "back.out(1.3)"
-});
-
-// ==================== SECTION TITLE ANIMATIONS ==================== 
-gsap.utils.toArray(".section-title").forEach((title) => {
-    gsap.from(title, {
+    gsap.to(".project-card", {
         scrollTrigger: {
-            trigger: title,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
+            trigger: ".projects",    // Start when .projects enters viewport
+            start: "top 80%",       // When top of .projects is 80% down the viewport
+            end: "bottom 20%",      // End animation when bottom is 20% down
+            toggleActions: "play none none none"  // Play on enter, do nothing on leave to keep cards visible
         },
-        y: 50,
-        opacity: 0,
+        y: 0,                       // Animate to normal position
+        opacity: 1,                 // Animate to fully visible
         duration: 0.8,
+        stagger: 0.2,               // Animate each card with 0.2s delay
         ease: "power2.out"
     });
-});
+}
+
+// ==================== SKILLS SECTION SCROLL ANIMATION ==================== 
+if (hasScrollTrigger) {
+    // Use set() to ensure initial state, then animate from there
+    gsap.set(".skill-category", { y: 80, opacity: 0 });
+
+    gsap.to(".skill-category", {
+        scrollTrigger: {
+            trigger: ".skills",
+            start: "top 75%",
+            toggleActions: "play none none none"  // Keep cards visible after animation completes
+        },
+        y: 0,                       // Animate to normal position
+        opacity: 1,                 // Animate to fully visible
+        duration: 0.7,
+        stagger: 0.15,
+        ease: "back.out(1.2)"
+    });
+}
+
+// ==================== ABOUT SECTION SCROLL ANIMATION ==================== 
+if (hasScrollTrigger) {
+    gsap.from(".about-content", {
+        scrollTrigger: {
+            trigger: ".about",
+            start: "top 70%",
+            toggleActions: "play none none reverse"
+        },
+        x: -100,                    // Start 100px to the left
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        immediateRender: false
+    });
+}
+
+// ==================== CONTACT SECTION SCROLL ANIMATION ==================== 
+// Do not force-hide content unless ScrollTrigger is available.
+if (hasScrollTrigger) {
+    gsap.from(".contact-content", {
+        scrollTrigger: {
+            trigger: ".contact",
+            start: "top 70%",
+            toggleActions: "play none none none"
+        },
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.8,
+        ease: "back.out(1.3)",
+        immediateRender: false
+    });
+}
+
+// ==================== SECTION TITLE ANIMATIONS ==================== 
+if (hasScrollTrigger) {
+    gsap.utils.toArray(".section-title").forEach((title) => {
+        gsap.from(title, {
+            scrollTrigger: {
+                trigger: title,
+                start: "top 80%",
+                toggleActions: "play none none none"  // Keep titles visible after animation completes
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            immediateRender: false
+        });
+    });
+}
 
 // ==================== FLOATING PARTICLES EFFECT ==================== 
 // Create 30 random particles that float across the screen
@@ -144,31 +175,44 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         
         if (target) {
-            // Use GSAP to smoothly scroll to the target
-            gsap.to(window, {
-                duration: 1,
-                scrollTo: {
-                    y: target,
-                    autoKill: false
-                },
-                ease: "power2.inOut"
-            });
+            // Prefer GSAP ScrollToPlugin when available, else use native smooth scrolling.
+            if (hasScrollToPlugin) {
+                gsap.to(window, {
+                    duration: 1,
+                    scrollTo: {
+                        y: target,
+                        autoKill: false
+                    },
+                    ease: "power2.inOut"
+                });
+            } else {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
     });
 });
 
 // ==================== CTA BUTTON INTERACTION ==================== 
-document.querySelector('.cta-button').addEventListener('click', () => {
-    const projectsSection = document.querySelector('#projects');
-    gsap.to(window, {
-        duration: 1,
-        scrollTo: {
-            y: projectsSection,
-            autoKill: false
-        },
-        ease: "power2.inOut"
+const heroButton = document.querySelector('.hero .cta-button');
+if (heroButton) {
+    heroButton.addEventListener('click', () => {
+        const projectsSection = document.querySelector('#projects');
+        if (projectsSection) {
+            if (hasScrollToPlugin) {
+                gsap.to(window, {
+                    duration: 1,
+                    scrollTo: {
+                        y: projectsSection,
+                        autoKill: false
+                    },
+                    ease: "power2.inOut"
+                });
+            } else {
+                projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
     });
-});
+}
 
 // ==================== ADVANCED HOVER EFFECTS ==================== 
 // Add interactive effect to project cards on hover
@@ -193,16 +237,18 @@ projectCards.forEach(card => {
 
 // ==================== PARALLAX EFFECT ON SCROLL ==================== 
 // Create a subtle parallax effect for the background
-gsap.to('.background', {
-    scrollTrigger: {
-        trigger: 'body',
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: true
-    },
-    y: 200,
-    ease: 'none'
-});
+if (hasScrollTrigger) {
+    gsap.to('.background', {
+        scrollTrigger: {
+            trigger: 'body',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true
+        },
+        y: 200,
+        ease: 'none'
+    });
+}
 
 // ==================== ACTIVE NAV LINK INDICATOR ==================== 
 // Update nav link styling based on current section
@@ -233,7 +279,16 @@ window.addEventListener('scroll', () => {
 // Animate the page load with a loading effect
 window.addEventListener('load', () => {
     // Trigger any additional animations after page is fully loaded
-    ScrollTrigger.refresh();
+    if (hasScrollTrigger) {
+        ScrollTrigger.refresh();
+    }
+});
+
+// Also refresh ScrollTrigger when DOM is fully ready to ensure all elements are measured correctly
+document.addEventListener('DOMContentLoaded', () => {
+    if (hasScrollTrigger) {
+        ScrollTrigger.refresh();
+    }
 });
 
 // ==================== MOUSE FOLLOW EFFECT (Optional Enhancement) ==================== 

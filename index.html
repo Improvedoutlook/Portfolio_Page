@@ -13,7 +13,9 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="logo">MARK OWENS</div>
+        <a href="#about" class="logo">
+            <img src="assets/Programmer_Man.png" alt="Mark Owens Logo" class="logo-image">
+        </a>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -27,9 +29,9 @@
     <section class="hero" id="home">
         <h1>
             <span class="hero-text">Hi, I'm </span>
-            <span class="gradient-text hero-text">Mark Owens</span>
+            <span class="gradient-text hero-text">Mark</span>
         </h1>
-        <p class="hero-subtitle">Software Engineer crafting digital experiences with modern web technologies</p>
+        <p class="hero-subtitle">A Software Engineer crafting digital experiences and always looking for a new problem to solve</p>
         <button class="cta-button">View My Work</button>
     </section>
 
@@ -37,40 +39,42 @@
     <section class="projects" id="projects">
         <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
-            <div class="project-card">
+            <div class="project-card" onclick="window.open('https://github.com/Improvedoutlook/AboveMe', '_blank')" style="cursor: pointer;">
                 <div class="project-card-header">
-                    <h3>Project Alpha</h3>
+                    <h3>AboveMe</h3>
                     <span class="project-icon">→</span>
                 </div>
-                <p>A full-stack application that revolutionizes task management with AI-powered suggestions and real-time collaboration.</p>
+                <p>AboveMe is a Blazor WebAssembly app that uses your location to display astronomy data such as moon phases, constellations, comets, and Nasa's Astronomy Picture of the Day.</p>
                 <div class="tech-tags">
                     <span class="tech-tag">C#</span>
+                    <span class="tech-tag">Blazor</span>
+                    <span class="tech-tag">Asp.NetCore</span>
+                    <span class="tech-tag">HTML/CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+            </div>
+            <div class="project-card" onclick="window.open('https://github.com/Improvedoutlook/Logger', '_blank')" style="cursor: pointer;">
+                <div class="project-card-header">
+                    <h3>Logger</h3>
+                    <span class="project-icon">→</span>
+                </div>
+                <p>A Desktop app (made in C). Logger is a work log aggregator that will save multiple timestamped entries and export your results to a text file.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">C</span>
+                    <span class="tech-tag">Win32</span>
+                    <span class="tech-tag">GCC</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-card-header">
+                    <h3>Forms Library Updater</h3>
+                    <span class="project-icon">→</span>
+                </div>
+                <p>A Web app that imports custom forms, saves the .html files to your DB and tracks the version number, and marks them as either in test ot prod. Proprietary.</p>
+                <div class="tech-tags">
                     <span class="tech-tag">SQL</span>
                     <span class="tech-tag">Asp.NetCore</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-card-header">
-                    <h3>Data Visualizer</h3>
-                    <span class="project-icon">→</span>
-                </div>
-                <p>Interactive data visualization dashboard that transforms complex datasets into beautiful, understandable insights.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">D3.js</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">Python</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-card-header">
-                    <h3>API Gateway</h3>
-                    <span class="project-icon">→</span>
-                </div>
-                <p>High-performance API gateway handling thousands of requests per second with intelligent rate limiting and caching.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Go</span>
-                    <span class="tech-tag">Redis</span>
-                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">C#</span>
                 </div>
             </div>
         </div>
@@ -85,26 +89,29 @@
                 <div class="skill-items">
                     <span class="skill-item">HTML/CSS</span>
                     <span class="skill-item">JavaScript</span>
-                    <span class="skill-item">React</span>
-                    <span class="skill-item">TypeScript</span>
+                    <span class="skill-item">Bootstrap</span>
+                    <span class="skill-item">GSAP</span>
+                    <span class="skill-item">Razor</span>
                 </div>
             </div>
             <div class="skill-category">
                 <h3>Backend</h3>
                 <div class="skill-items">
                     <span class="skill-item">C#</span>
-                    <span class="skill-item"><Asp class="Net"></Asp></span>
+                    <span class="skill-item">Asp.Net</span>
                     <span class="skill-item">SQL</span>
-                    <span class="skill-item">PostgreSQL</span>
+                    <span class="skill-item">Entity Framework Core</span>
+                    <span class="skill-item">Dapper</span>
                 </div>
             </div>
             <div class="skill-category">
                 <h3>Tools & DevOps</h3>
                 <div class="skill-items">
-                    <span class="skill-item">Docker</span>
-                    <span class="skill-item">Git</span>
-                    <span class="skill-item">CI/CD</span>
                     <span class="skill-item">Azure</span>
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">GitHub</span>
+                    <span class="skill-item">Visual Studio</span>
+                    <span class="skill-item">Visual Studio Code</span>
                 </div>
             </div>
         </div>
@@ -114,9 +121,9 @@
     <section class="about" id="about">
         <div class="about-content">
             <h2>About Me</h2>
-            <p>I'm a self taught software engineer with a passion for building clean, efficient solutions to complex problems. With expertise spanning full-stack development, I love transforming ideas into scalable applications.</p>
-            <p>I believe in writing code that's not just functional, but simple and maintainable. Continuous learning drives me forward—whether it's mastering new frameworks, exploring emerging technologies, or contributing to open source projects.</p>
-            <p>Let's collaborate and create something extraordinary together.</p>
+            <p>I'm a self taught software engineer with a passion for building clean, efficient solutions to complex problems. Expertise spanning full-stack development in the healthcare sector. Whether it's screening tools, building custom data exports, or modern snappy layouts I'm your guy.</p>
+            <p>I believe in writing code that's not just functional, but simple and maintainable. Continuous learning drives me forward, whether it's mastering new frameworks, exploring emerging technologies, or contributing to open source projects.</p>
+            <p>If you're interested in collaborating on a projec feel free to reach out!</p>
         </div>
     </section>
 
@@ -125,18 +132,18 @@
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact-content">
             <p>I'm always interested in hearing about new projects and opportunities.</p>
-            <a href="mailto:your.email@example.com" class="cta-button contact-button">Send Me An Email</a>
+            <a href="mailto:improvedoutlook@yahoo.com" class="cta-button contact-button">Send Me An Email</a>
             <div class="social-links">
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link">Twitter</a>
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/mark-owens-4608a0177/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+                <a href="https://app.daily.dev/improvedoutlook" target="_blank" rel="noopener noreferrer" class="social-link">daily.dev</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Mark. All rights reserved. Built with passion and GSAP animations.</p>
+        <p>&copy; 2025 Mark Owens. All rights reserved. Built with passion and GSAP animations.</p>
     </footer>
 
     <!-- GSAP Library - Core and ScrollTrigger plugin -->
