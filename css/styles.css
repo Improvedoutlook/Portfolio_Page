@@ -24,7 +24,7 @@ body.blog-page {
 }
 
 .blog-page main {
-    padding: 7.5rem 5% 5rem;
+    padding: 7.5rem clamp(1rem, 5vw, 3rem) 5rem;
 }
 
 .blog-container {
@@ -55,6 +55,7 @@ body.blog-page {
     font-weight: 900;
     letter-spacing: -1px;
     margin-bottom: 0.75rem;
+    line-height: 1.1;
     text-transform: uppercase;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     -webkit-background-clip: text;
@@ -89,6 +90,8 @@ body.blog-page {
 .blog-content {
     color: #ffffff;
     line-height: 1.9;
+    max-width: 72ch;
+    margin-inline: auto;
 }
 
 .blog-content h2 {
@@ -99,6 +102,37 @@ body.blog-page {
 
 .blog-content p + p {
     margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .blog-page main {
+        padding-top: 9.5rem;
+        padding-bottom: 4rem;
+    }
+
+    .pixel-panel {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-page main {
+        padding-top: 12.5rem;
+        padding-inline: 6%;
+        padding-bottom: 3.5rem;
+    }
+
+    .blog-kicker {
+        margin-bottom: 1.5rem;
+    }
+
+    .blog-meta {
+        font-size: 0.9rem;
+    }
+
+    .blog-content {
+        line-height: 1.85;
+    }
 }
 
 /* ==================== ANIMATED GRADIENT BACKGROUND ==================== */
