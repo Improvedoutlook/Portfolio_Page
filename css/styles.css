@@ -17,6 +17,90 @@ body {
     line-height: 1.6;
 }
 
+/* ==================== BLOG (SNES/16-BIT INSPIRED) ==================== */
+body.blog-page {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    letter-spacing: 0.02em;
+}
+
+.blog-page main {
+    padding: 7.5rem 5% 5rem;
+}
+
+.blog-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.blog-kicker {
+    color: #a0a0b0;
+    margin: 0.5rem 0 2rem;
+}
+
+.pixel-panel {
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0;
+    padding: 1.5rem;
+}
+
+.pixel-panel + .pixel-panel {
+    margin-top: 1.5rem;
+}
+
+.pixel-title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.blog-post-list {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.blog-post-list a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.blog-post-list a:hover {
+    color: #667eea;
+}
+
+.blog-meta {
+    color: #a0a0b0;
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+}
+
+.blog-content {
+    color: #ffffff;
+    line-height: 1.9;
+}
+
+.blog-content h2 {
+    margin: 1.75rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.blog-content p + p {
+    margin-top: 1rem;
+}
+
 /* ==================== ANIMATED GRADIENT BACKGROUND ==================== */
 .background {
     position: fixed;
