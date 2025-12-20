@@ -94,6 +94,14 @@ body.blog-page {
     margin-inline: auto;
 }
 
+.blog-content a {
+    color: #ffffff;
+}
+
+.blog-content a:hover {
+    color: #667eea;
+}
+
 .blog-content h2 {
     margin: 1.75rem 0 0.75rem;
     text-transform: uppercase;
@@ -102,6 +110,14 @@ body.blog-page {
 
 .blog-content p + p {
     margin-top: 1rem;
+}
+
+.blog-content p + .numbered-area {
+    margin-top: 1.25rem;
+}
+
+.blog-content .numbered-area + .numbered-area {
+    margin-top: 1.25rem;
 }
 
 @media (max-width: 768px) {
