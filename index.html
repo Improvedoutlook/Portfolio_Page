@@ -9,31 +9,26 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="background"></div>
-
     <!-- Navigation -->
     <nav>
         <a href="#about" class="logo">
             <img src="assets/Programmer_Man.png" alt="Mark Owens Logo" class="logo-image">
         </a>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="#home">home</a></li>
+            <li><a href="#projects">projects</a></li>
+            <li><a href="#skills">skills</a></li>
+            <li><a href="#about">about</a></li>
+            <li><a href="#contact">contact</a></li>
+            <li><a href="blog/index.html">blog</a></li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <h1>
-            <span class="hero-text">Hi, I'm </span>
-            <span class="gradient-text hero-text">Mark</span>
-        </h1>
+        <h1>Hi, I'm Mark</h1>
         <p class="hero-subtitle">A Software Engineer crafting digital experiences. I'm always looking for a new problem to solve</p>
-        <button class="cta-button">View My Work</button>
+        <button class="cta-button" onclick="document.querySelector('#projects').scrollIntoView({behavior: 'smooth'})">View My Work</button>
     </section>
 
     <!-- Projects Section -->
@@ -147,14 +142,11 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Mark Owens. All rights reserved. Built with passion and GSAP animations.</p>
+        <p>&copy; 2026 Mark Owens. All rights reserved.</p>
     </footer>
 
-    <!-- GSAP Library - Core and ScrollTrigger plugin -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    
-    <script src="js/animations.js"></script>
 </body>
 </html>
