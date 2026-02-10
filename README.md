@@ -135,9 +135,9 @@ GSAP animations are highly configurable:
 - [MDN Web Docs](https://developer.mozilla.org/)
 - [CSS Tricks](https://css-tricks.com/)
 
-## 📄 License
+## License
 
-Feel free to use this template for your portfolio. Remember to replace all placeholder content with your own!
+License: MIT — see the LICENSE file for details.
 
 ## 💡 Tips for Success
 
