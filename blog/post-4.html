@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Outline: Why Communicating Technical Things is so Hard">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>Why Communicating Technical Things is so Hard | Blog | improvedoutlook</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="blog-page">
+    <div class="background"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="../index.html#about" class="logo" aria-label="Go to portfolio">
+            <img src="../assets/Programmer_Man.png" alt="Logo" class="logo-image">
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html#home">Home</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+            <li><a href="./index.html">Blog</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="blog-container">
+            <article class="pixel-panel">
+                <header>
+                    <h1 class="pixel-title">Why Communicating Technical Things is so Hard</h1>
+                    <p class="blog-meta">Apr 4, 2026 • Mark Owens</p>
+                </header>
+
+                <div class="blog-content">
+                    <p>Some of you are familiar with the Feynman Technique developed by Nobel Prize–winning physicist Richard Feynman. The basic idea is that if you want to know whether you understand something, try to explain it to someone with no background in it. Where you stumble or reach for jargon is exactly where your understanding has a hole.</p>
+
+                        <h2>A Personal Experience: The Curse of Knowledge</h2>
+                    <section class="numbered-area">
+                        <p>As a newer developer, I was messaging our "Programmers" thread trying to ascertain which table in our database tracked "Claims" while I was working on a feature that would tie that into a specific role in our system. My question (I thought) was simple: I needed a table name. I wasn't getting a direct answer at first, and later I found out why.</p>
+
+                        <p>After some back and forth I realized what I was looking for — the [SomethingOrOtherRoleClaims] table. That matched my expectation, but I just wanted to confirm.</p>
+
+                        <p>One senior engineer responded, "I wouldn't ever query that table if you can help it." Being naturally curious and without any prior context, I asked, "Why?" His answer: "There are already standard ways to query it that automatically handle concurrency."</p>
+
+                        <p>Interestingly, another senior on the thread prompted, "User.HasClaim, right?" By now you've probably sensed the communication problems; let me break down why this was poor communication on a very technical issue. There were at least two gaps in the provided explanation:</p>
+
+                        <p><strong>Gap 1:</strong> He named a property, not a reason. Saying "standard ways that handle concurrency" suggests a better option exists, but doesn't explain what the concurrency problem actually is. Why does querying [SomethingOrOtherRoleClaims] directly cause a concurrency issue? He never said. A complete answer would have been: "ASP.NET Identity loads claims into the user's session token at login. If you query the table directly, you might get data that's out of sync with what the current request sees. User.HasClaim reads from the already-loaded principal, so it's consistent and doesn't hit the database."</p>
+
+                        <p><strong>Gap 2:</strong> He assumed I knew what "standard ways" meant. The other senior had to prompt him with "User.HasClaim, right?" to get the actual answer. That prompt shouldn't have been necessary — a precise answer names the thing upfront.</p>
+
+                        <p>The irony is the senior giving the explanation was likely picturing the full explanation in his head. Enter "the curse of knowledge" mentioned earlier — he knew what he meant so clearly that he couldn't see the gaps from my side. Herein lies the fundamental challenge of communicating technical things.</p>
+                    </section>
+
+                    <h2>Tacit Knowledge</h2>
+                    <section class="numbered-area">
+                        <p>Tacit knowledge is something you've known for so long that you don't remember not knowing it. When you talk about it, your brain is essentially on autopilot. Many experienced engineers fall into this trap without realizing it: they've internalized so much that they skip steps. It's not that they're lazy; their brains simply don't flag the gaps anymore.</p>
+                    </section>
+
+                    <h2>Accuracy vs Precision</h2>
+                    <section class="numbered-area">
+                        <p>Was the senior engineer's answer accurate? Absolutely. Was he communicating with precision? In my opinion, no. An engineer can be technically correct ("the service is slow because of database contention") while being useless to you because they haven't specified which tables, what kind of contention, or under what conditions. Accuracy is knowing the right answer. Precision is scoping it tightly enough to be actionable. Most technical education trains the former almost exclusively.</p>
+                    </section>
+
+                    <h2>What's the Solution to the Problem?</h2>
+                    <section class="numbered-area">
+                        <p>Here are practical strategies you can apply when explaining technical things:</p>
+
+                        <ul class="terminal-list">
+                            <li><code>></code> Lead with the "what," not the "how." Start with the outcome or status, then go deeper only if asked. For example: "The upload bug is fixed — it was a filename sanitization issue."</li>
+                            <li><code>></code> Keep two versions ready: one sentence for a non-technical stakeholder and one for a peer. Maintaining both reveals whether you really understand the thing.</li>
+                            <li><code>></code> Name your audience before you speak. Literally ask yourself, "Who am I talking to right now?" and tailor your vocabulary accordingly.</li>
+                            <li><code>></code> Use analogies sparingly and well. Good analogies map behavior, not appearance. Example: "A cache is like a notepad where you write down answers so you don't have to look them up again."</li>
+                            <li><code>></code> Write more than you think you need to — PR descriptions, Slack threads, and comments force you to complete your thoughts. Re-read your writing the next day: could a new hire follow it?</li>
+                            <li><code>></code> Ask "What would make this wrong?" as a precision check. If you can't answer that, add boundaries and conditions to your explanation.</li>
+                        </ul>
+                    </section>
+
+                    <h2>So What's the Take Home?</h2>
+                    <section class="numbered-area">
+                        <p>The deeper principle underneath all of this: <strong>technical communication is really just respecting the listener's time and context.</strong> Senior engineers who communicate poorly are often unconsciously treating explanation as a burden rather than part of the work. Be willing to do both the technical work and the communication work — then you'll truly be in a position to lift others up.</p>
+                    </section>
+                </div>
+            </article>
+
+            <div style="margin-top: 1.5rem;">
+                <a class="cta-button" href="./index.html">← Back to Blog List</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- GSAP Library - Core and ScrollTrigger plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+    <script src="../js/animations.js"></script>
+</body>
+</html>

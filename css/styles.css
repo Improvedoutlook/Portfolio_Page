@@ -398,6 +398,26 @@ footer::after {
     padding-top: 150px;
 }
 
+/* Terminal-style list for technical explanations (remove default bullets) */
+.terminal-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 1rem 0;
+}
+.terminal-list li {
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+.terminal-list li code {
+    color: #DD8B2C;
+    display: inline-block;
+    width: 1.2rem;
+    text-align: left;
+    font-weight: 700;
+}
+
 main {
     min-height: 100vh;
 }
