@@ -238,6 +238,23 @@ section {
     color: #DD8B2C;
 }
 
+/* "source" link sits at the far right of the tech-tag row. Clicking it opens
+   the repo without triggering the card's onclick (event.stopPropagation in markup). */
+.project-source {
+    margin-left: auto;
+    color: #888;
+    font-size: 0.85rem;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    z-index: 1;
+}
+
+.project-source:hover {
+    color: #DD8B2C;
+    border-color: #DD8B2C;
+}
+
 /* Skills Section */
 .skills-container {
     display: flex;
