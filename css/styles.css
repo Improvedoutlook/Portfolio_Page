@@ -485,6 +485,15 @@ main {
     background-color: transparent;
 }
 
+.latest-badge {
+    display: block;
+    color: #DD8B2C;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+}
+
 .blog-post-list {
     list-style: none;
     padding: 0;
