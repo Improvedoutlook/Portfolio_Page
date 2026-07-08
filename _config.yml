@@ -7,8 +7,8 @@ title: "Mark's Portfolio"
 tagline: "Software Engineer"
 description: "Mark Owens — Software Engineer showcasing projects, skills, and blog posts."
 author: "Mark Owens"
-url: ""           # GitHub Pages serves from the apex (e.g. https://improvedoutlook.github.io/)
-baseurl: ""       # Re-add "/repo" if this ever moves to a project page
+url: "https://improvedoutlook.github.io"  # canonical site URL
+baseurl: "/Portfolio_Page"                  # repo name; site is at /Portfolio_Page/
 
 # Stable URLs. We scope the post permalink to posts only via defaults below so
 # it doesn't accidentally apply to other pages. With permalink /blog/:slug.html

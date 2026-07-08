@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{%- assign is_blog_page = page.url == '/blog/' or page.layout == 'post' -%}
+{%- assign is_blog_page = page.layout == 'post' or page.url contains '/blog/' -%}
 <head>
     {%- include head.html -%}
 </head>
