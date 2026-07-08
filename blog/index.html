@@ -14,7 +14,7 @@ permalink: /blog/
                 {% for post in site.posts %}
                 <li>
                     {% if forloop.first %}<span class="latest-badge" aria-hidden="true">▸ LATEST</span>{% endif %}
-                    <a href="{{ post.url }}">{{ post.title }}</a>
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
                     <div class="blog-meta">{{ post.date | date: "%b %-d, %Y" }}</div>
                 </li>
                 {% endfor %}
