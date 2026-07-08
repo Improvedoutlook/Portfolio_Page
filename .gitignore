@@ -24,6 +24,12 @@ dist/
 build/
 out/
 
+# Jekyll build output and caches
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
 # Logs
 *.log
 logs/

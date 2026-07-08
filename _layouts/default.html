@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+{%- assign is_blog_page = page.url == '/blog/' or page.layout == 'post' -%}
+<head>
+    {%- include head.html -%}
+</head>
+<body class="{% if is_blog_page %}blog-page{% endif %}">
+    {%- if is_blog_page -%}
+    <div class="background"></div>
+    {%- endif -%}
+    {%- include nav.html -%}
+
+    {{ content }}
+
+    <footer>
+        <p>&copy; 2026 {{ site.author }}. All rights reserved.</p>
+    </footer>
+
+    {% include scripts-gsap.html %}
+    {% if is_blog_page %}
+        {% include scripts-app.html %}
+    {% endif %}
+</body>
+</html>

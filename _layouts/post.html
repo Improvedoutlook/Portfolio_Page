@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<main>
+    <div class="blog-container">
+        <article class="pixel-panel">
+            <header>
+                <h1 class="pixel-title">{{ page.title }}</h1>
+                <p class="blog-meta">{{ page.date | date: "%b %-d, %Y" }} • {{ site.author }}</p>
+            </header>
+
+            <div class="blog-content">
+                {{ content }}
+            </div>
+        </article>
+
+        <div style="margin-top: 1.5rem;">
+            <a class="cta-button" href="{{ '/blog/' | relative_url }}">← Back to Blog List</a>
+        </div>
+    </div>
+</main>

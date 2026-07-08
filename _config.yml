@@ -1,0 +1,55 @@
+# Mark's Portfolio — Jekyll config
+#
+# GitHub Pages builds this site with Jekyll automatically; no Gemfile required
+# unless you want to preview locally with `bundle exec jekyll serve`.
+
+title: "Mark's Portfolio"
+tagline: "Software Engineer"
+description: "Mark Owens — Software Engineer showcasing projects, skills, and blog posts."
+author: "Mark Owens"
+url: ""           # GitHub Pages serves from the apex (e.g. https://improvedoutlook.github.io/)
+baseurl: ""       # Re-add "/repo" if this ever moves to a project page
+
+# Stable URLs. We scope the post permalink to posts only via defaults below so
+# it doesn't accidentally apply to other pages. With permalink /blog/:slug.html
+# + filenames like _posts/2025-12-20-post-1.md, every post lands at
+# /blog/post-1.html — identical to the pre-migration URLs.
+#
+# Jekyll applies `defaults:` bottom-up — later entries override earlier ones
+# where scopes overlap. If you add more defaults in the future, put the most
+# specific scopes LAST so they win.
+
+defaults:
+  - scope:
+      type: posts
+    values:
+      permalink: /blog/:slug.html
+
+# Don't render GitHub's default theme on the first deploy before our layouts
+# kick in. Avoids the brief "minima" flash.
+theme: null
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Files/dirs that exist in the source but are not part of the published site.
+exclude:
+  - README.md
+  - QUICK_START.md
+  - INDEX.md
+  - 00_START_HERE.md
+  - SETUP_COMPLETE.txt
+  - PROJECT_SUMMARY.md
+  - DEVELOPMENT_GUIDE.md
+  - CONFIG_REFERENCE.md
+  - GITHUB_PAGES_SETUP.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
