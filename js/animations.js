@@ -23,22 +23,19 @@ function pageHas(selectors) {
 const heroTimeline = gsap.timeline({ defaults: { ease: "power3.out" } });
 if (pageHas(".hero-text, .hero-subtitle, .hero .cta-button")) {
     heroTimeline
-        // Animate each word in the hero from below with opacity fade
+        // Fade in each word in the hero (no positional movement)
         .from(".hero-text", {
-            y: 100,           // Start 100px below
             opacity: 0,       // Start invisible
             duration: 1,      // Take 1 second
             stagger: 0.2      // Delay each element by 0.2s
         })
-        // Then animate the subtitle
+        // Then fade in the subtitle
         .from(".hero-subtitle", {
-            y: 50,
             opacity: 0,
             duration: 0.8
         }, "-=0.5")          // Start 0.5s before previous animation ends (overlap)
-        // Finally animate the hero button
+        // Finally fade in the hero button
         .from(".hero .cta-button", {
-            scale: 0.8,
             opacity: 0,
             duration: 0.6,
             immediateRender: false
@@ -47,7 +44,7 @@ if (pageHas(".hero-text, .hero-subtitle, .hero .cta-button")) {
 
 // ==================== PROJECT CARDS SCROLL ANIMATION ====================
 if (hasScrollTrigger && pageHas(".project-card")) {
-    gsap.set(".project-card", { y: 100, opacity: 0 });
+    gsap.set(".project-card", { opacity: 0 });
 
     gsap.to(".project-card", {
         scrollTrigger: {
@@ -56,7 +53,6 @@ if (hasScrollTrigger && pageHas(".project-card")) {
             end: "bottom 20%",
             toggleActions: "play none none none"
         },
-        y: 0,
         opacity: 1,
         duration: 0.8,
         stagger: 0.2,
@@ -66,7 +62,7 @@ if (hasScrollTrigger && pageHas(".project-card")) {
 
 // ==================== SKILLS SECTION SCROLL ANIMATION ====================
 if (hasScrollTrigger && pageHas(".skill-category")) {
-    gsap.set(".skill-category", { y: 80, opacity: 0 });
+    gsap.set(".skill-category", { opacity: 0 });
 
     gsap.to(".skill-category", {
         scrollTrigger: {
@@ -74,11 +70,10 @@ if (hasScrollTrigger && pageHas(".skill-category")) {
             start: "top 75%",
             toggleActions: "play none none none"
         },
-        y: 0,
         opacity: 1,
         duration: 0.7,
         stagger: 0.15,
-        ease: "back.out(1.2)"
+        ease: "power2.out"
     });
 }
 
@@ -90,7 +85,6 @@ if (hasScrollTrigger && pageHas(".about-content")) {
             start: "top 70%",
             toggleActions: "play none none reverse"
         },
-        x: -100,
         opacity: 0,
         duration: 1,
         ease: "power3.out",
@@ -106,10 +100,9 @@ if (hasScrollTrigger && pageHas(".contact-content")) {
             start: "top 70%",
             toggleActions: "play none none none"
         },
-        scale: 0.8,
         opacity: 0,
         duration: 0.8,
-        ease: "back.out(1.3)",
+        ease: "power2.out",
         immediateRender: false
     });
 }
@@ -123,7 +116,6 @@ if (hasScrollTrigger && pageHas(".section-title")) {
                 start: "top 80%",
                 toggleActions: "play none none none"
             },
-            y: 50,
             opacity: 0,
             duration: 0.8,
             ease: "power2.out",
