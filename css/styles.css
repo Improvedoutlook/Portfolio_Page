@@ -345,15 +345,124 @@ section {
     margin: 0 auto;
 }
 
-.contact-content p {
+.contact-content > p {
     color: #b8b8b8;
     font-size: 1.1rem;
     margin-bottom: 2.5rem;
     line-height: 1.8;
 }
 
-.contact-button {
+/* --- Contact Form --- */
+.contact-form {
     margin-bottom: 3rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: #DD8B2C;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.form-group label::before {
+    content: '> ';
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: transparent;
+    border: 2px solid #444;
+    color: #e8e8e8;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #DD8B2C;
+    box-shadow: 0 0 0 2px rgba(221, 139, 44, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #555;
+    font-style: italic;
+}
+
+.form-group input:focus::placeholder,
+.form-group textarea:focus::placeholder {
+    color: #666;
+}
+
+/* Submit button */
+.form-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    position: relative;
+}
+
+.form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.submit-spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+.form-submit.sending .submit-spinner {
+    display: inline-block;
+}
+
+.form-submit.sending .submit-text {
+    opacity: 0.8;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Success / Error messages */
+.form-result {
+    margin-top: 1.5rem;
+    padding: 1rem 1.2rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    display: none;
+    border-left: 3px solid #DD8B2C;
+}
+
+.form-result.visible {
+    display: block;
+}
+
+.form-result.success {
+    border-color: #4a9;
+    color: #4a9;
+}
+
+.form-result.error {
+    border-color: #c44;
+    color: #c44;
 }
 
 .social-links {

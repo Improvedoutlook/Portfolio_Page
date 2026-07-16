@@ -292,6 +292,58 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     gsap.globalTimeline.timeScale(0.5);
 }
 
+// ==================== CONTACT FORM SUBMISSION ====================
+(function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const submitBtn = form.querySelector('.form-submit');
+    const resultEl = document.getElementById('form-result');
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        // Prevent double-submission
+        if (submitBtn.disabled) return;
+
+        // Mark as sending
+        submitBtn.disabled = true;
+        submitBtn.classList.add('sending');
+        resultEl.classList.remove('visible', 'success', 'error');
+
+        // Timeout after 10s so the button doesn't stay stuck
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 10000);
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                signal: controller.signal
+            });
+
+            clearTimeout(timeout);
+
+            const data = await response.json();
+
+            if (data.success) {
+                resultEl.textContent = '// Message sent successfully! Thanks for reaching out — I\'ll get back to you soon.';
+                resultEl.classList.add('visible', 'success');
+                form.reset();
+            } else {
+                throw new Error(data.message || 'Submission failed.');
+            }
+        } catch (err) {
+            resultEl.textContent = '// Hmm, something went wrong. Please try again or email me directly.';
+            resultEl.classList.add('visible', 'error');
+            console.error('Contact form error:', err);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('sending');
+        }
+    });
+})();
+
 // ==================== PAGE VISIBILITY API ====================
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) {

@@ -116,8 +116,46 @@ layout: default
     <section class="contact" id="contact">
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact-content">
-            <p>I'm always interested in hearing about new projects and opportunities.</p>
-            <a href="mailto:improvedoutlook@yahoo.com" class="cta-button contact-button">Send Me An Email</a>
+            <p>I'm always interested in hearing about new projects and opportunities. Drop me a message and I'll get back to you.</p>
+
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+                <!-- Replace with your Web3Forms Access Key after signing up at https://web3forms.com/ -->
+                <input type="hidden" name="access_key" value="4540492b-a750-4a49-96e9-0b56b5681ba2">
+
+                <!-- Honeypot spam protection (hidden from users) -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+
+                <!-- Redirect to prevent the default Web3Forms "thank you" page -->
+                <input type="hidden" name="redirect" value="">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+                </div>
+
+                <button type="submit" class="cta-button form-submit">
+                    <span class="submit-text">Send Message</span>
+                    <span class="submit-spinner" aria-hidden="true"></span>
+                </button>
+
+                <div class="form-result" id="form-result" aria-live="polite"></div>
+            </form>
+
             <div class="social-links">
                 <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

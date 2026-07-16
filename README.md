@@ -28,7 +28,7 @@ A retro-terminal-themed portfolio site showcasing projects, skills, and a blog a
 2. **Featured Projects** — three highlighted projects (each card opens its live URL; some have inline source links)
 3. **Skills & Technologies** — organized under Frontend / Backend / Tools & DevOps
 4. **About** — personal narrative with bordered retro styling
-5. **Get In Touch** — `mailto:` CTA and inline-svg social icons (GitHub, LinkedIn, daily.dev)
+5. **Get In Touch** — Web3Forms-powered contact form (no `mailto:` spam exposure) and inline-svg social icons (GitHub, LinkedIn, daily.dev)
 
 ### Blog
 - 📝 A Jekyll-backed blog at `/blog/` with a paginated post list and individual post pages
