@@ -7,7 +7,13 @@ title: "Mark's Portfolio"
 tagline: "Software Engineer"
 description: "Mark Owens — Software Engineer showcasing projects, skills, and blog posts."
 author: "Mark Owens"
-url: "https://improvedoutlook.github.io"  # canonical site URL
+
+# Open Graph / Twitter Card defaults — used when a page doesn't override them in
+# its front matter.  Recommended image size: 1200×630 px.  For best results,
+# create a dedicated og-image.png and swap the path below.
+og_image: "/assets/Programmer_Man.png"
+# twitter_handle: "@yourhandle"          # uncomment & fill in if you ever get a Twitter account
+url: "https://improvedoutlook.github.io"  # canonical site URL — also used for Open Graph / Twitter Cards
 baseurl: "/Portfolio_Page"                  # repo name; site is at /Portfolio_Page/
 
 # Stable URLs. We scope the post permalink to posts only via defaults below so

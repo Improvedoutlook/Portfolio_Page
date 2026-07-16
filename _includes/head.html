@@ -1,7 +1,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{{ page.description | default: site.description }}">
+
+{%- comment -%}  Build the page title once so we can reuse it in <title>, og:title, twitter:title  {%- endcomment -%}
+{%- assign page_title = site.title -%}
+{%- if page.title -%}
+  {%- assign page_title = page.title | append: ' | ' | append: site.title -%}
+{%- endif -%}
+
+{%- comment -%}  Build a description: page front-matter → post excerpt → site default  {%- endcomment -%}
+{%- assign page_description = site.description -%}
+{%- if page.description -%}
+  {%- assign page_description = page.description -%}
+{%- elsif page.excerpt -%}
+  {%- assign page_description = page.excerpt | strip_html | normalize_whitespace | truncate: 200 -%}
+{%- endif -%}
+
+{%- comment -%}  Build the OG image URL (must be absolute so scrapers can fetch it)  {%- endcomment -%}
+{%- assign og_image_path = page.og_image | default: site.og_image -%}
+{%- assign og_image_url = og_image_path | absolute_url -%}
+
+{%- comment -%}  Canonical page URL  {%- endcomment -%}
+{%- assign page_url = page.url | absolute_url -%}
+
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ page_description }}">
 <meta name="theme-color" content="#0a0a0f">
-<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+<!-- Open Graph — used by Slack, Discord, LinkedIn, Facebook, etc. -->
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ page_description }}">
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+{% if page.date %}<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+<meta property="og:url" content="{{ page_url }}">
+<meta property="og:image" content="{{ og_image_url }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card — used by Twitter/X, Slack, Discord, etc. -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title }}">
+<meta name="twitter:description" content="{{ page_description }}">
+<meta name="twitter:image" content="{{ og_image_url }}">
+{% if site.twitter_handle %}<meta name="twitter:site" content="{{ site.twitter_handle }}">{% endif %}
+{% if site.twitter_handle %}<meta name="twitter:creator" content="{{ site.twitter_handle }}">{% endif %}
+
 <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}">
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Blog" href="{{ '/feed.xml' | relative_url }}">
